@@ -1,3 +1,4 @@
+import 'package:clean_architecture_demo/presentation/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(theme: getApplicationTheme(),);
 
   }
 }
