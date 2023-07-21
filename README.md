@@ -1,4 +1,4 @@
 
 
 
-startFrom: Lec 16
+startFrom: Lec 17
