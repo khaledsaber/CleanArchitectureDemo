@@ -1,4 +1,5 @@
 
 
 
-startFrom: Lec 22
+startFrom: Lec 25 
+
