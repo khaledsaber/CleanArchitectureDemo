@@ -70,17 +70,25 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   AppStrings.skip,
                   textAlign: TextAlign.end,
                 ),
               ),
-            )
+            ),
+            _getBottomSheetWidget(),
           ],
         ),
       ),
     );
   }
+
+Widget  _getBottomSheetWidget() {
+    return Row(children: [
+      
+    ],);
+}
+
 }
 
 class OnBoardingPage extends StatelessWidget {
