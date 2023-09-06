@@ -1,10 +1,12 @@
 import 'package:clean_architecture_demo/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture_demo/presentation/resources/color_manager.dart';
+import 'package:clean_architecture_demo/presentation/resources/constants_manager.dart';
 import 'package:clean_architecture_demo/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../resources/routes_manager.dart';
 import '../resources/strings_manager.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -45,9 +47,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: ColorManager.white,
         systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: ColorManager.white,
-            statusBarBrightness: Brightness.dark),
+          statusBarColor: ColorManager.white,
+          statusBarBrightness: Brightness.dark,
+        ),
       ),
       body: PageView.builder(
         itemCount: _list.length,
@@ -69,10 +74,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.loginRoute);
+                },
+                child: Text(
                   AppStrings.skip,
                   textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
@@ -83,12 +91,87 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     );
   }
 
-Widget  _getBottomSheetWidget() {
-    return Row(children: [
-      
-    ],);
-}
+  Widget _getBottomSheetWidget() {
+    return Container(
+      color: ColorManager.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                _pageController.animateToPage(_getPreviousPage(),
+                    duration: const Duration(
+                        milliseconds: AppConstants.sliderAnimationTime),
+                    curve: Curves.bounceInOut);
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImageAssets.leftArrow),
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              for (int i = 0; i < _list.length; i++)
+                Padding(
+                  padding: const EdgeInsets.all(
+                    AppPadding.p8,
+                  ),
+                  child: _getProperCircle(i),
+                )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                _pageController.animateToPage(_getNextPage(),
+                    duration: const Duration(
+                        milliseconds: AppConstants.sliderAnimationTime),
+                    curve: Curves.bounceInOut);
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImageAssets.rightArrow),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
+  _getProperCircle(int index) {
+    if (index == _currentIndex) {
+      return SvgPicture.asset(ImageAssets.holoCircle);
+    } else {
+      return SvgPicture.asset(ImageAssets.solidCircle);
+    }
+  }
+
+  int _getPreviousPage() {
+    int previousIndex = --_currentIndex;
+
+    if (previousIndex == -1) {
+      previousIndex = _list.length - 1;
+    }
+
+    return previousIndex;
+  }
+
+  int _getNextPage() {
+    int nextIndex = ++_currentIndex;
+
+    if (nextIndex == _list.length) {
+      nextIndex = 0;
+    }
+
+    return nextIndex;
+  }
 }
 
 class OnBoardingPage extends StatelessWidget {

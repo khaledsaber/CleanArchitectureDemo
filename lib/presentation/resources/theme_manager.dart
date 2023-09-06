@@ -58,13 +58,14 @@ ThemeData getApplicationTheme() {
 
     //text theme
     textTheme: TextTheme(
-      displayLarge: getSemiBoldStyle(color: ColorManager.darkGrey,fontSize: FontSize.s16),
+      displayLarge: getSemiBoldStyle(
+          color: ColorManager.darkGrey, fontSize: FontSize.s16),
       headlineLarge: getSemiBoldStyle(
           color: ColorManager.darkGrey, fontSize: FontSize.s16),
-      headlineMedium: getRegularStyle(
-          color: ColorManager.darkGrey, fontSize: FontSize.s14),
+      headlineMedium:
+          getRegularStyle(color: ColorManager.darkGrey, fontSize: FontSize.s14),
       titleMedium:
-          getMediumStyle(color: ColorManager.lightGrey, fontSize: FontSize.s14),
+          getMediumStyle(color: ColorManager.primary, fontSize: FontSize.s16),
       bodySmall: getRegularStyle(color: ColorManager.grey1),
       bodyMedium: getRegularStyle(color: ColorManager.grey),
     ),
@@ -91,10 +92,10 @@ ThemeData getApplicationTheme() {
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
           borderSide:
               BorderSide(color: ColorManager.error, width: AppSize.s1_5)),
-    focusedErrorBorder:  OutlineInputBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
-        borderSide:
-        BorderSide(color: ColorManager.primary, width: AppSize.s1_5)),
+      focusedErrorBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+          borderSide:
+              BorderSide(color: ColorManager.primary, width: AppSize.s1_5)),
     ),
   );
 }
