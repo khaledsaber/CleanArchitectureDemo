@@ -156,6 +156,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   void dispose() {
+
     _viewModel.dispose();
 
     super.dispose();
