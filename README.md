@@ -1,6 +1,3 @@
-
-
-
-startFrom: section 5
+startFrom: section 6 , Lec 40
  
 
