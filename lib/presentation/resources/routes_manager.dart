@@ -1,7 +1,7 @@
 import 'package:clean_architecture_demo/presentation/forgot_password/forgot_password_view.dart';
 import 'package:clean_architecture_demo/presentation/login/login_view.dart';
 import 'package:clean_architecture_demo/presentation/main/main_view.dart';
-import 'package:clean_architecture_demo/presentation/onboarding/onboarding_view.dart';
+import 'package:clean_architecture_demo/presentation/onboarding/view/onboarding_view.dart';
 import 'package:clean_architecture_demo/presentation/register/register_view.dart';
 import 'package:clean_architecture_demo/presentation/splash/splash_view.dart';
 import 'package:clean_architecture_demo/presentation/store_details/store_details_view.dart';
