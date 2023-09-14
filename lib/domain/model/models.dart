@@ -18,28 +18,25 @@ class SliderViewObject {
 
 //login models
 
-class Customer {
+class CustomerModel {
   String id;
   String name;
-  String numOfNotification;
+  int numOfNotification;
 
-  Customer(this.id, this.name, this.numOfNotification);
+  CustomerModel(this.id, this.name, this.numOfNotification);
 }
 
-class Contacts {
+class ContactsModel {
   String phone;
   String email;
   String link;
 
-  Contacts(this.phone, this.email, this.link);
+  ContactsModel(this.phone, this.email, this.link);
 }
 
+class AuthenticationModel {
+  CustomerModel? customer;
+  ContactsModel? contacts;
 
-class Authentication{
-  Customer customer;
-  Contacts contacts;
-
-  Authentication(this.customer, this.contacts);
+  AuthenticationModel(this.customer, this.contacts);
 }
-
-

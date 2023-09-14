@@ -35,6 +35,8 @@ dependencies:
   analyzer: ^6.2.0
   dio: ^5.3.2
   json_serializable: ^6.7.1
+  dartz: ^0.10.1
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -68,8 +70,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/images/
-      - assets/images/
+    - assets/images/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -84,18 +86,18 @@ flutter:
   # example:
 
   fonts:
-     - family: Montserrat
-       fonts:
-         - asset: assets/fonts/Montserrat-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/Montserrat-SemiBold.ttf
-           weight: 600
-         - asset: assets/fonts/Montserrat-Medium.ttf
-           weight: 500
-         - asset: assets/fonts/Montserrat-Regular.ttf
-           weight: 400
-         - asset: assets/fonts/Montserrat-Light.ttf
-           weight: 300
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
