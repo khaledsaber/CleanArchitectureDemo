@@ -8,7 +8,7 @@ class ErrorHandler implements Exception {
 
   ErrorHandler.handler(dynamic error) {
     if (error is DioException) {
-      failure = _handleError(error);
+      failure = _handleError(error)!;
     } else {
       failure = DataSource.DEFAULT.getFailure();
     }
