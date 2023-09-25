@@ -83,11 +83,11 @@ ThemeData getApplicationTheme() {
       enabledBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
           borderSide:
-              BorderSide(color: ColorManager.primary, width: AppSize.s1_5)),
+              BorderSide(color: ColorManager.grey, width: AppSize.s1_5)),
       focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
           borderSide:
-              BorderSide(color: ColorManager.grey, width: AppSize.s1_5)),
+              BorderSide(color: ColorManager.primary, width: AppSize.s1_5)),
       errorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
           borderSide:

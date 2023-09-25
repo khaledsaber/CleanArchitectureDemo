@@ -1,4 +1,4 @@
-startFrom: Lec 72
+startFrom: Lec 83
  
 
-    
+     

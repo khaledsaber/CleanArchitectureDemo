@@ -7,6 +7,8 @@ import 'package:clean_architecture_demo/presentation/splash/splash_view.dart';
 import 'package:clean_architecture_demo/presentation/store_details/store_details_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/di.dart';
+
 class Routes {
   static const String splashRoute = "/";
   static const String loginRoute = "/login";
@@ -25,6 +27,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashView());
 
       case Routes.loginRoute:
+        intiLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
 
       case Routes.registerRoute:

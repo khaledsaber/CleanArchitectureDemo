@@ -12,6 +12,9 @@ class LoginViewModel extends BaseViewModel
   final StreamController _passwordStreamController =
       StreamController<String>.broadcast();
 
+  final StreamController _areAllInputsValidStreamController =
+      StreamController<void>.broadcast();
+
   var loginObject = LoginObject('', '');
 
   final LoginUseCase _loginUseCase;
@@ -22,6 +25,7 @@ class LoginViewModel extends BaseViewModel
   void dispose() {
     _passwordStreamController.close();
     _userNameStreamController.close();
+    _areAllInputsValidStreamController.close();
   }
 
   @override
@@ -31,12 +35,14 @@ class LoginViewModel extends BaseViewModel
   setPassword(String password) {
     inputPassword.add(password);
     loginObject = loginObject.copyWith(password: password);
+    inputAreAllInputsValid.add(null);
   }
 
   @override
   setUserName(String userName) {
     inputUserName.add(userName);
     loginObject = loginObject.copyWith(username: userName);
+    inputAreAllInputsValid.add(null);
   }
 
   @override
@@ -46,6 +52,9 @@ class LoginViewModel extends BaseViewModel
   Sink get inputUserName => _userNameStreamController.sink;
 
   @override
+  Sink get inputAreAllInputsValid => _areAllInputsValidStreamController.sink;
+
+  @override
   login() async {
     (await _loginUseCase.execute(
             LoginUseCaseInput(loginObject.username, loginObject.password)))
@@ -53,6 +62,8 @@ class LoginViewModel extends BaseViewModel
       (failure) => print(failure.message),
       (data) => print(data.customer?.name),
     );
+
+
   }
 
   // outputs
@@ -72,6 +83,16 @@ class LoginViewModel extends BaseViewModel
   bool _isUserNameValid(String username) {
     return username.isNotEmpty;
   }
+
+  @override
+  Stream<bool> get outAreAllInputsValid =>
+      _areAllInputsValidStreamController.stream
+          .map((_) => _areAllInputsValid());
+
+  bool _areAllInputsValid() {
+    return (_isUserNameValid(loginObject.username) &&
+        _isPasswordValid(loginObject.password));
+  }
 }
 
 mixin LoginViewModelInputs {
@@ -85,10 +106,14 @@ mixin LoginViewModelInputs {
   Sink get inputUserName;
 
   Sink get inputPassword;
+
+  Sink get inputAreAllInputsValid;
 }
 
 mixin LoginViewModelOutputs {
   Stream<bool> get outIsUserNameValid;
 
   Stream<bool> get outIsPasswordValid;
+
+  Stream<bool> get outAreAllInputsValid;
 }
