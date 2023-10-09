@@ -7,3 +7,4 @@ import '../../data/network/failure.dart';
 abstract class Repository {
   Future<Either<Failure, AuthenticationModel>>  login(LoginRequest loginRequest);
 }
+

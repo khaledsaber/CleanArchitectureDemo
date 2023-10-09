@@ -16,7 +16,6 @@ import '../data/network/network_info.dart';
 final instance = GetIt.instance;
 
 Future<void> intiAppModule() async {
-  // here we put all dependencies that are generic  for the whole project
 
   final sharedPrefs = await SharedPreferences.getInstance();
   instance.registerLazySingleton<SharedPreferences>(() => sharedPrefs);

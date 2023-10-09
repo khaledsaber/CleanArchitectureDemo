@@ -10,10 +10,12 @@ class MyApp extends StatefulWidget {
 
   factory MyApp() => _instance;
 
-  static final MyApp _instance = MyApp._internal(); //singleton
+  static const MyApp _instance = MyApp._internal(); //singleton
 
   @override
   State<MyApp> createState() => _MyAppState();
+
+
 }
 
 class _MyAppState extends State<MyApp> {

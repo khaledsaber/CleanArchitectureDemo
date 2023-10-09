@@ -23,9 +23,9 @@ class CustomerResponse {
   CustomerResponse(this.id, this.name, this.numOfNotification);
 
   factory CustomerResponse.fromJson(Map<String, dynamic> json) =>
-      _$CustomerResponse(json);
+      _$CustomerResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CustomerResponse(this);
+  Map<String, dynamic> toJson() => _$CustomerResponseToJson(this);
 }
 
 @JsonSerializable()
@@ -40,9 +40,9 @@ class ContactsResponse {
   ContactsResponse(this.phone, this.email, this.link);
 
   factory ContactsResponse.fromJson(Map<String, dynamic> json) =>
-      _$ContactsResponse(json);
+      _$ContactsResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ContactsResponse(this);
+  Map<String, dynamic> toJson() => _$ContactsResponseToJson(this);
 }
 
 @JsonSerializable()

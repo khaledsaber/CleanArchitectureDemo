@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-enum LanguageType { ENGLISH, ARABIC }
+enum  LanguageType { ENGLISH, ARABIC }
 
 const String ARABIC = "ar";
 const String ENGLISH = "ar";
